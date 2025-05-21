@@ -5,6 +5,7 @@ import pandas as pd
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
 df = conn.read()
+df
 
 mood = st.selectbox('What is your mood?', ['happy', 'sad', 'angry'])
 if st.button('Submit'):
