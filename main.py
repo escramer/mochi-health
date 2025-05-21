@@ -1,12 +1,14 @@
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
+import pandas as pd
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 mood = st.selectbox('What is your moood?', ['😊', '😠', '😕', '🎉'])
 if st.button('Submit'):
-    conn.update(worksheet='Sheet1', data=[['Hello', 'world']])
+    data_df = pd.DataFrame([['Hello', 'world']], columns=['Column1', 'Column2'])
+    conn.update(worksheet='Sheet1', data=data_df)
     st.success('Success')
 
 df = conn.read()
