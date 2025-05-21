@@ -4,7 +4,7 @@ from streamlit_gsheets import GSheetsConnection
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-mood = st.selectbox('What is your mood?', ['😊', '😠', '😕', '🎉'])
+mood = st.selectbox('What is your moood?', ['😊', '😠', '😕', '🎉'])
 if st.button('Submit'):
     conn.update(worksheet='Sheet1', data=[['Hello', 'world']])
 
