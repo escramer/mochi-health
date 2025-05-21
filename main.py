@@ -9,6 +9,7 @@ mood = st.selectbox('What is your mood?', ['😊', '😠', '😕', '🎉'])
 if st.button('Submit'):
     data_df = pd.DataFrame([['Hello', 'world']], columns=['Column1', 'Column2'])
     conn.update(worksheet='Sheet1', data=data_df)
+    conn.reset()
     st.success('Success')
 
 df = conn.read()
