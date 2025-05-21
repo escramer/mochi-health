@@ -6,7 +6,7 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 mood = st.selectbox('What is your mood?', ['😊', '😠', '😕', '🎉'])
 if st.button('Submit'):
-    st.balloons()
+    conn.update(data=[['Hello', 'world']])
 
 df = conn.read()
 st.write(df)
