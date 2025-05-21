@@ -4,11 +4,12 @@ import pandas as pd
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
+df = conn.read()
 
-mood = st.selectbox('What is your mood?', ['😊', '😠', '😕', '🎉'])
+mood = st.selectbox('What is your mood?', ['happy', 'sad', 'angry'])
 if st.button('Submit'):
-    data_df = pd.DataFrame([['Hello', 'world']], columns=['Column1', 'Column2'])
-    conn.update(worksheet='Sheet1', data=data_df)
+    df = df.concat(['2025-05-20', mood])
+    conn.update(worksheet='Sheet1', data=df)
     #conn.reset()
 
 df = conn.read()
