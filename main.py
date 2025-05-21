@@ -16,5 +16,5 @@ if st.button('Submit'):
 
 counts = st.session_state.df.Mood.value_counts()
 fig, ax = plt.subplots()
-ax.bar(counts.columns, counts)
+ax.bar(counts.index, counts)
 st.pyplot(fig)
