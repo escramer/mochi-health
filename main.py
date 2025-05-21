@@ -9,7 +9,8 @@ df
 
 mood = st.selectbox('What is your mood?', ['happy', 'sad', 'angry'])
 if st.button('Submit'):
-    df = pd.concat([df, pd.Series(['2025-05-20', mood], index=['Timestamp', 'Mood'])], ignore_index=True)
+    row = pd.DataFrame({'Timestamp': '2025-05-20', 'Mood': mood})
+    df = pd.concat([df, row], ignore_index=True)
     conn.update(worksheet='Sheet1', data=df)
     #conn.reset()
 
