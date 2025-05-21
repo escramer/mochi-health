@@ -15,7 +15,9 @@ if st.button('Submit'):
     st.session_state.df = pd.concat([st.session_state.df, row], ignore_index=True)
     conn.update(worksheet='Sheet1', data=st.session_state.df)
 
-counts = st.session_state.df.Mood.value_counts()
+df = st.session_state.df
+today_df = df[df.Timestamp == str(date.today()]
+counts = today_df.Mood.value_counts()
 fig, ax = plt.subplots()
 ax.bar(counts.index, counts)
 st.pyplot(fig)
